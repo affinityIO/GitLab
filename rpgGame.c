@@ -2946,227 +2946,225 @@ int main(void)
 			}
 			case 21:
 			{
-					
-
-			while(choice != 99)
-			{
-				int equipment = 0;
-				int combatEvent = 0;
-				int randomNumber = 0;
-				int dead = 0;
-
-				int HP = 10;
-				int enemyHP = 10;
-				int totalHP = 10;
-				int totalEnemyHP = 10;
-
-				//rifle, shotgun, grenade, 45 DMG
-				int weaponDMG[4] = { 4, 6, 8, 5 };
-				int attackDMG = 0;
-				int weaponChoice = 0;
-
-				//bite, claw, tail swipe DMG
-				int enemyWeaponDMG[3] = { 6, 5, 6 };
-				int enemyAttackDMG = 0;
-				int randomEnemyChoice = 0;
-
-				int inputedCode = 0;
-
-				srand(time(NULL));
-
-		puts("You see yellow footprints leading into Room #21 and you choose to open it");
-
-		puts("As you close the door, red lights are blinking, and you hear \"ALL UNITS GET TO YOUR DESIGNATED EXITS, TAKE YOUR RIFLES OFF SAFETY, and LOCK n' LOAD!!\" ");
-	       	puts("You have been transported to the Stallion 475-AXB Shock Transport above Planet Necrotix in Galaxy Traxor");
-		puts("You are part of a Special Recon Unit with the specific mission to  destroy the Necrotin Queen Hive");
-		
-		
-		puts("Choose your fate:");
-		puts("Enter 1 for Shock Troop equipment");
-		puts("Enter 2 for Stealth equipment");
-
-		scanf("%d", &equipment);
-
-		if(equipment == 1)
-		{
-			puts("You have a Rifle, Shotgun, 2 Hand Grenades, and a .45");
-
-		}
-		else if(equipment == 2)
-		{
-			puts("You have a silenced SMG, a silenced 9mm, 1 Smoke Grenade, 1 Flash Grenade, and a Knife");
-		}
-	
-		switch(equipment)
-		{
-
-			case 1: // Shock troop
-				
-				puts("Get ready, your landing is emminent...");
-				sleep(3);		
-				puts("As the Space Craft lands, you are the first to put boots on ground and rush to the closest Necrotin");
-				puts("You engage in combat with the Necrotin");
-
-				puts("Choose a number between 1 - 3 which will decide whether you attack first, the Necrotin attacks first, or some random combat related incident happens");
-
-				scanf("%d", &combatEvent);
-
-					//int correctCode = 1775;
-					//int inputedCode = 0;
-
-				switch(combatEvent)
+				while(choice != 99)
 				{
-				
-					case 1:
-					// random incident
-						puts("The new guy shoots at the alien, unfortunately your head was in his line of sight...");
-						dead = 1;
-						break;
+					int equipment = 0;
+					int combatEvent = 0;
+					int randomNumber = 0;
+					int dead = 0;
 
-					case 2:
+					int HP = 10;
+					int enemyHP = 10;
+					int totalHP = 10;
+					int totalEnemyHP = 10;
+
+					//rifle, shotgun, grenade, 45 DMG
+					int weaponDMG[4] = { 4, 6, 8, 5 };
+					int attackDMG = 0;
+					int weaponChoice = 0;
+
+					//bite, claw, tail swipe DMG
+					int enemyWeaponDMG[3] = { 6, 5, 6 };
+					int enemyAttackDMG = 0;
+					int randomEnemyChoice = 0;
+
+					int inputedCode = 0;
+
+					srand(time(NULL));
+
+					puts("You see yellow footprints leading into Room #21 and you choose to open it");
+
+					puts("As you close the door, red lights are blinking, and you hear \"ALL UNITS GET TO YOUR DESIGNATED EXITS, TAKE YOUR RIFLES OFF SAFETY, and LOCK n' LOAD!!\" ");
+						puts("You have been transported to the Stallion 475-AXB Shock Transport above Planet Necrotix in Galaxy Traxor");
+					puts("You are part of a Special Recon Unit with the specific mission to  destroy the Necrotin Queen Hive");
 					
-						// You attack first
-						puts("Choose your weapon: 1) Rifle 2) Shotgun");
-						scanf("%d", &weaponChoice);
+					
+					puts("Choose your fate:");
+					puts("Enter 1 for Shock Troop equipment");
+					puts("Enter 2 for Stealth equipment");
+
+					scanf("%d", &equipment);
+
+					if(equipment == 1)
+					{
+						puts("You have a Rifle, Shotgun, 2 Hand Grenades, and a .45");
+
+					}
+					else if(equipment == 2)
+					{
+						puts("You have a silenced SMG, a silenced 9mm, 1 Smoke Grenade, 1 Flash Grenade, and a Knife");
+					}
+				
+					switch(equipment)
+					{
+
+						case 1: // Shock troop
 							
-						switch(weaponChoice)
-						{
-							case 1:
-								// rifle
-								while(1)
-								{
-									//printf("weaponDMG[0] = %d\n", weaponDMG[0]);
-									enemyHP = (rand() % weaponDMG[0]) + 1;
-									//printf("enemyHP: %d\n", enemyHP);
-									totalEnemyHP = totalEnemyHP - enemyHP;
-									printf("You injured the Necrotin for %d HP\n", enemyHP);
-									printf("The Necrotin has %d HP left!\n", totalEnemyHP);
-									if(totalEnemyHP < 0)
-									{
-										puts("You slayed the beast, now keep pushing to the Hive!");
-										break;
-									}
-									
-									randomEnemyChoice = ( rand() % 2 );
-									HP = (rand() % enemyWeaponDMG[randomEnemyChoice]) + 1;
-									totalHP = totalHP - HP;
-									printf("The Necrotin injured you for %d HP\n", HP);
-									printf("You have %d HP left!\n", totalHP);
-									
-									if(totalHP < 0)
-									{
-										puts("GG your alien food...");
-										dead = 1;
-										break;
-									}	
+							puts("Get ready, your landing is emminent...");
+							sleep(3);		
+							puts("As the Space Craft lands, you are the first to put boots on ground and rush to the closest Necrotin");
+							puts("You engage in combat with the Necrotin");
 
-							
-								}
-								break;
-						
-							case 2:
-						
-								// shotgun
-								while(1)
-								{
-									enemyHP = (rand() % weaponDMG[1]) + 1;
-									totalEnemyHP = totalEnemyHP - enemyHP;
-									printf("You injured the Necrotin for %d HP\n", enemyHP);
-									printf("The Necrotin has %d HP left!\n", totalEnemyHP);
-									if(totalEnemyHP < 0 )
-									{
-										puts("You slayed the beast, now keep pushing to the Hive!");
-										break;
-									}
-									randomEnemyChoice = ( rand() % 2 );
-									HP = (rand() % enemyWeaponDMG[randomEnemyChoice]) + 1;
-									totalHP = totalHP - HP;
-									printf("The Necrotin injured you for %d HP\n", HP);
-									printf("You have %d HP left!\n", totalHP);
+							puts("Choose a number between 1 - 3 which will decide whether you attack first, the Necrotin attacks first, or some random combat related incident happens");
 
-									if(totalHP < 0)
-									{
-										puts("GG your alien food...");
-										dead = 1;
-										break;
-									}
+							scanf("%d", &combatEvent);
 
-								}
-								break;
-						}
-						break;
+								//int correctCode = 1775;
+								//int inputedCode = 0;
 
-					case 3:
-			
-						// Necrotin attacks first
-						while(1)
-						{
-							randomEnemyChoice = ( rand() % 2 );
-							HP = (rand() % enemyWeaponDMG[randomEnemyChoice]) + 1;
-							totalHP = totalHP - HP;
-							printf("The Necrotin injured you for %d HP\n", HP);
-							printf("You have %d HP left!\n", totalHP);
-							if(totalHP < 0)
+							switch(combatEvent)
 							{
-								puts("GG your alien food...");
-								dead = 1;
-								break;
+							
+								case 1:
+								// random incident
+									puts("The new guy shoots at the alien, unfortunately your head was in his line of sight...");
+									dead = 1;
+									break;
+
+								case 2:
+								
+									// You attack first
+									puts("Choose your weapon: 1) Rifle 2) Shotgun");
+									scanf("%d", &weaponChoice);
+										
+									switch(weaponChoice)
+									{
+										case 1:
+											// rifle
+											while(1)
+											{
+												//printf("weaponDMG[0] = %d\n", weaponDMG[0]);
+												enemyHP = (rand() % weaponDMG[0]) + 1;
+												//printf("enemyHP: %d\n", enemyHP);
+												totalEnemyHP = totalEnemyHP - enemyHP;
+												printf("You injured the Necrotin for %d HP\n", enemyHP);
+												printf("The Necrotin has %d HP left!\n", totalEnemyHP);
+												if(totalEnemyHP < 0)
+												{
+													puts("You slayed the beast, now keep pushing to the Hive!");
+													break;
+												}
+												
+												randomEnemyChoice = ( rand() % 2 );
+												HP = (rand() % enemyWeaponDMG[randomEnemyChoice]) + 1;
+												totalHP = totalHP - HP;
+												printf("The Necrotin injured you for %d HP\n", HP);
+												printf("You have %d HP left!\n", totalHP);
+												
+												if(totalHP < 0)
+												{
+													puts("GG your alien food...");
+													dead = 1;
+													break;
+												}	
+
+										
+											}
+											break;
+									
+										case 2:
+									
+											// shotgun
+											while(1)
+											{
+												enemyHP = (rand() % weaponDMG[1]) + 1;
+												totalEnemyHP = totalEnemyHP - enemyHP;
+												printf("You injured the Necrotin for %d HP\n", enemyHP);
+												printf("The Necrotin has %d HP left!\n", totalEnemyHP);
+												if(totalEnemyHP < 0 )
+												{
+													puts("You slayed the beast, now keep pushing to the Hive!");
+													break;
+												}
+												randomEnemyChoice = ( rand() % 2 );
+												HP = (rand() % enemyWeaponDMG[randomEnemyChoice]) + 1;
+												totalHP = totalHP - HP;
+												printf("The Necrotin injured you for %d HP\n", HP);
+												printf("You have %d HP left!\n", totalHP);
+
+												if(totalHP < 0)
+												{
+													puts("GG your alien food...");
+													dead = 1;
+													break;
+												}
+
+											}
+											break;
+									}
+									break;
+
+								case 3:
+						
+									// Necrotin attacks first
+									while(1)
+									{
+										randomEnemyChoice = ( rand() % 2 );
+										HP = (rand() % enemyWeaponDMG[randomEnemyChoice]) + 1;
+										totalHP = totalHP - HP;
+										printf("The Necrotin injured you for %d HP\n", HP);
+										printf("You have %d HP left!\n", totalHP);
+										if(totalHP < 0)
+										{
+											puts("GG your alien food...");
+											dead = 1;
+											break;
+										}
+
+										enemyHP = (rand() % weaponDMG[0]) + 1i; // surprise attack! use rifle
+											totalEnemyHP = totalEnemyHP - enemyHP;
+										printf("You injured the Necrotin for %d HP\n", enemyHP);
+										printf("The Necrotin has %d HP left!\n", totalEnemyHP);
+										if(totalEnemyHP < 0)
+										{
+											puts("You slayed the beast, now keep pushing towards the Hive!");
+											break;
+										}	
+									}
+									break;
 							}
+							break;
 
-							enemyHP = (rand() % weaponDMG[0]) + 1i; // surprise attack! use rifle
-						        totalEnemyHP = totalEnemyHP - enemyHP;
-							printf("You injured the Necrotin for %d HP\n", enemyHP);
-							printf("The Necrotin has %d HP left!\n", totalEnemyHP);
-							if(totalEnemyHP < 0)
+						case 2: // sneaky sneaky mission
+
+							puts("Get ready, your landing is emminent...");
+							sleep(3);
+
+							puts("With your badass Predator like cloaking suit you are able to rush past hordes of Necrotin and plant C5 explosive charges inside one of there underground tunnels");
+							puts("As you start to enter the detonation code, some atmospheric distubance disrupts your cloacking shield and your stealth suit goes offline...");
+							puts("You are surrounded on all sides and have no chance of escape");
+							puts("However, you still have time to find out what year the Marine Corps was founded and input those 4 last digits to initiate the C5's...");
+
+							scanf("%d", &inputedCode);
+							if(inputedCode == CORRECTCODE)
 							{
-								puts("You slayed the beast, now keep pushing towards the Hive!");
-								break;
-							}	
-						}
-						break;
-				}
-				break;
+								puts("You blew up a major enemy reinforcement tunnel, sacrificed yourself and prevented many friendly casualties... You're a hero.");
+							}
+							else
+							{
+								puts("You failed, and many friendlies died. But I don't blame you... I blame your senior drill instructor.");
+							}
+							dead = 1;
 
-			case 2: // sneaky sneaky mission
+							break;
 
-				puts("Get ready, your landing is emminent...");
-				sleep(3);
+				} // end of switch	
+			
 
-				puts("With your badass Predator like cloaking suit you are able to rush past hordes of Necrotin and plant C5 explosive charges inside one of there underground tunnels");
-				puts("As you start to enter the detonation code, some atmospheric distubance disrupts your cloacking shield and your stealth suit goes offline...");
-				puts("You are surrounded on all sides and have no chance of escape");
-				puts("However, you still have time to find out what year the Marine Corps was founded and input those 4 last digits to initiate the C5's...");
-
-				scanf("%d", &inputedCode);
-				if(inputedCode == CORRECTCODE)
-				{
-					puts("You blew up a major enemy reinforcement tunnel, sacrificed yourself and prevented many friendly casualties... You're a hero.");
-				}
-				else
-				{
-					puts("You failed, and many friendlies died. But I don't blame you... I blame your senior drill instructor.");
-				}
-				dead = 1;
-
-				break;
-
-		} // end of switch	
-		
-
-		// GAME CONTINUES  AFTER INITIAL ACTION EVENT
-		if(dead == 1)
-		{
-			puts("GAME OVER");
-		}
-		else
-		{
-			puts("As you continue to rush towards the hive, you get completely surrounded and you and your team shoot it out till the very..");
-		}
-		break;
-		
-	} // end of while
-	break;	
-	} // end of case
+			// GAME CONTINUES  AFTER INITIAL ACTION EVENT
+			if(dead == 1)
+			{
+				puts("GAME OVER");
+			}
+			else
+			{
+				puts("As you continue to rush towards the hive, you get completely surrounded and you and your team shoot it out till the very..");
+			}
+			break;
+			
+		} // end of while
+		break;	
+		} // end of case
 			case 22:
 			{
 					while(choice != 99)
@@ -3218,11 +3216,11 @@ int main(void)
 								puts("You find yourself further ahead in the cave.");
 
 							}
+						}
 					}
+				}
 			}
 		}
-	}
-}
 	}
 	return 0;
 }
@@ -3262,8 +3260,6 @@ void convertToUpper(char *sPtr)
 
 void writte(void)
 {
-
-
 	int i =0;
 	
 	int bite =0;
@@ -3367,14 +3363,12 @@ void trivia(int *ptr) // Function for Room 3 (Elthon Cisneros). (uses pointers)
 }//END TRIVIA FUNCTION (ROOM 3)
 
 
-void menu(){ // just to show the menu not suppose to return anything
-    
+void menu()
+{ // just to show the menu not suppose to return anything    
     puts("Press 1 then Enter: to look around for weapons you can use");
     puts("Press 2 then Enter: to play guess a number");
     puts("Press 3 then Enter: to read a story");
     puts("Press 4 then Enter: to exit room 4");
-    
-    
 }
 int guessNumber(void){
     
@@ -3429,8 +3423,9 @@ void story(void){
         puts("It has been said that the definition of insanity is doing the same thing over and over and expecting different results. I understand the sentiment behind the saying, but it's wrong.I entered the building on a bet. I was strapped for cash and didn't buy into the old legends of the hotel to begin with, so fifty bucks was more than enough to get me do it. It was simple. Just reach the top floor, the 45th floor, shine my flashlight from a window.The hotel was old and broken, including the elevator, so that meant hiking up the stairs. So up the stairs I went. As I reached each platform, I noted the old brass plaques displaying the floor numbers. 15, 16, 17, 18. I felt a little tired as I crept higher, but so far, no ghosts, no cannibals, no demons. Piece of cake.I can't tell you how happy I was as I entered that last stretch of numbers. I joyfully counted them aloud at each platform. 40, 41, 42, 43, 44, 44. I stopped and looked back down the stairs. I must have miscounted, so I continued up. 44. One more flight. 44. And then down ten flights. 44. Fifteen flights. 44.And so it's been for as long as I can remember. So really, insanity isn't doing something repeatedly and expecting different results. It's knowing that the results will never ever change; that each door leads to the same staircase, to the same number. It’s realizing you no longer fall asleep. It's not knowing whether you've been running for days or weeks or years. It's when the sobbing slowly turns into laughter.");
     }
 }
-int cash(int temp){
-    
+
+int cash(int temp)
+{
     int total= total+temp;
     if(total>500){
         return 2;    // if it returns one you reached your goal
